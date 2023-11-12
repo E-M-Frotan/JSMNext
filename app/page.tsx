@@ -6,7 +6,6 @@ export default function Home() {
       <div>
         <h1 className="h1-bold">Hi Frotan</h1>
         <h2 className="h2-bold">Hi Frotan</h2>
-        <h1>Hi Frotan</h1>
       </div>
     </main>
   );
