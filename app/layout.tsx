@@ -4,7 +4,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DevFlow",
+  title: "Frotan",
   description:
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi perferendis aut quibusdam atque deserunt cum nulla pariatur, nemo reprehenderit. Maxime iste doloribus facere vitae voluptate suscipit fugiat in accusamus obcaecati?",
   icons: {
@@ -22,6 +22,7 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-spaceGrotesk",
 });
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeProvider";
 
 export default function RootLayout({
   children,
@@ -29,19 +30,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider
-      appearance={{
-        elements: {
-          formButtonPrimary: 'primary-gradient',
-          footerActionLink: 'primary-text-gradient hover:text-primary-500'
-        }
-      }}
-    >
-      <html lang="en">
-        <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
-          {children} 
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+        <ClerkProvider
+          appearance={{
+            elements: {
+              formButtonPrimary: "primary-gradient",
+              footerActionLink: "primary-text-gradient hover:text-primary-500",
+            },
+          }}
+        >
+          <ThemeProvider>{children}</ThemeProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
